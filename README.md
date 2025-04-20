@@ -1,16 +1,6 @@
-# yerel_rehber_app
+# Local Mate 
+Bu uygulamanın büyük bir kısmını tamamlamış bulunuyorum.
+Kullanıcı arayüzü, temel işlevler ve Firebase entegrasyonu hazır durumda.
+Şu anda ödeme sistemi üzerinde çalışıyorum ve bu kısım tamamlandığında proje daha da işlevsel hale gelecek.
+Geliştirme süreci aktif olarak devam etmektedir.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
