@@ -46,4 +46,6 @@ app.*.map.json
 
 *.env
 android/app/google-services.json
+android/local.properties
+android/app/src/main/res/values/secrets.xml
 

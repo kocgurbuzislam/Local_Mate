@@ -6,6 +6,7 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+
 android {
     namespace = "com.example.yerel_rehber_app"
     compileSdk = flutter.compileSdkVersion
