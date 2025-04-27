@@ -4,7 +4,7 @@
   <img src="./screenshots/signup.png" alt="Ana Ekran" width="250"/>
   <img src="./screenshots/login.png" alt="Giriş Ekranı" width="250"/>
 </p>
-### Anasayfa ve detaylar
+Anasayfa ve detaylar
 <p align="left">
   <img src="./screenshots/home.png" alt="Ana Ekran" width="250"/>
   <img src="./screenshots/login.png" alt="Giriş Ekranı" width="250"/>
