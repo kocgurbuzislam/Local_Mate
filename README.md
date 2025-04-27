@@ -1,6 +1,6 @@
 # Local Mate
 
-👋 [Gelen turistlerin, ziyaret ettikleri şehirde yerel halkla doğrudan iletişim kurarak özel rehberlik hizmeti almasını sağlayan bir mobil uygulama.]
+👋 Gelen turistlerin, ziyaret ettikleri şehirde yerel halkla doğrudan iletişim kurarak özel rehberlik hizmeti almasını sağlayan bir mobil uygulama.
 
 ---
 
