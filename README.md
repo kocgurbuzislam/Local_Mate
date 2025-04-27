@@ -1,8 +1,9 @@
 # Local Mate 
-Bu uygulamanın büyük bir kısmını tamamlamış bulunuyorum.
-Kullanıcı arayüzü, temel işlevler ve Firebase entegrasyonu hazır durumda.
-Şu anda ödeme sistemi üzerinde çalışıyorum ve bu kısım tamamlandığında proje daha da işlevsel hale gelecek.
-Geliştirme süreci aktif olarak devam etmektedir.
+<p align="center">
+  <img src="./screenshots/home.png" alt="Ana Ekran" width="250"/>
+  <img src="./screenshots/login.png" alt="Giriş Ekranı" width="250"/>
+  <img src="./screenshots/hotel1.png" alt="Otel Detayı 1" width="250"/>
+</p>
 
 
 
