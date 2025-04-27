@@ -38,7 +38,6 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
     final placeId = widget.restaurant.placeId;
 
     if (lat != null && lng != null) {
-      // Place ID varsa onu kullanarak daha kesin bir link oluşturmayı dene
       final query = Uri.encodeComponent('$lat,$lng');
       final urlString = placeId.isNotEmpty
           ? 'https://www.google.com/maps/search/?api=1&query=$query&query_place_id=$placeId'
@@ -55,7 +54,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
     }
   }
 
-  // Genel URL açma (eğer restoranın web sitesi olsaydı kullanılabilirdi)
+  // Genel URL açma
   Future<void> _launchURL(String? urlString) async {
     if (urlString == null || urlString.isEmpty) {
       _showErrorSnackBar('Geçerli bir URL bulunamadı.');
@@ -275,7 +274,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
         ],
       ),
 
-      // Alt Buton (Rezervasyon veya Yol Tarifi olabilir)
+      // Alt Buton
       bottomNavigationBar: _buildBottomActionButton(context),
     );
   }
@@ -371,7 +370,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
         ],
       );
     }
-    // 2. Photos listesi yoksa ama photoUrl varsa onu kullan
+    // 2. Photos listesi yoksa, ama photoUrl varsa onu kullan
     else if (photoUrl != null && photoUrl.isNotEmpty) {
       return CachedNetworkImage(
         imageUrl: photoUrl,
@@ -475,7 +474,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
         .where((t) =>
             t != 'point_of_interest' && t != 'establishment' && t != 'food')
         .toList();
-    // Eğer filtre sonucu hepsi gittiyse veya çok az kaldıysa, 'food'u geri ekleyebiliriz
+    // Eğer filtre sonucu hepsi gittiyse veya çok az kaldıysa, 'food'u geri ekle
     if (relevantTypes.isEmpty && types.contains('food')) {
       relevantTypes = ['food'];
     } else if (relevantTypes.isEmpty && types.isNotEmpty) {

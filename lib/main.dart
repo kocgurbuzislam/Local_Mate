@@ -6,6 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:yerel_rehber_app/colors.dart';
 import 'package:yerel_rehber_app/data/repo/guide_repository.dart';
 import 'package:yerel_rehber_app/data/repo/public_repo.dart';
+import 'package:yerel_rehber_app/data/repo/payment_service.dart';
 import 'package:yerel_rehber_app/ui/cubit/all_cities_cubit.dart';
 import 'package:yerel_rehber_app/ui/cubit/city_cubit.dart';
 import 'package:yerel_rehber_app/ui/cubit/guide_cubit.dart';
@@ -31,11 +32,13 @@ import 'package:yerel_rehber_app/ui/views/guide_registration/steps/guide_success
 import 'package:yerel_rehber_app/ui/views/auth/login_pages.dart';
 import 'package:yerel_rehber_app/ui/views/profile_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:yerel_rehber_app/ui/views/payment_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await dotenv.load(fileName: ".env");
+  await PaymentService.initializeStripe();
   runApp(MyApp());
 }
 

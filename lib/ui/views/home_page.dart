@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-// AutomaticKeepAliveClientMixin'i performans sorunu devam ederse tekrar deneyebilirsiniz.
+
 class _HomePageState extends State<HomePage> {
   final TextEditingController _cityController = TextEditingController();
   String selectedCity = "İstanbul";

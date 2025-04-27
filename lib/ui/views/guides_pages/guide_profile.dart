@@ -187,7 +187,7 @@ class _GuideProfilePageState extends State<GuideProfilePage> {
                   onPressed: () => Navigator.pop(context),
                 ),
           title: Text(
-            'Profil Oluştur',
+            'Rehber Profili',
             style: TextStyle(
               color: mainColor,
               fontSize: 20,

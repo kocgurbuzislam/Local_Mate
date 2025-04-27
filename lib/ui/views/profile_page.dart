@@ -9,7 +9,11 @@ import 'package:yerel_rehber_app/ui/views/guide_registration/guide_registration_
 import '../../data/repo/auth.dart';
 import '../../ui/views/personal_info_page.dart';
 import '../../ui/views/security_settings_page.dart';
-
+import 'package:yerel_rehber_app/ui/views/guide_earnings_page.dart';
+import 'package:yerel_rehber_app/ui/views/guide_withdraw_page.dart';
+import 'package:yerel_rehber_app/ui/views/guide_tours_page.dart';
+import 'package:yerel_rehber_app/ui/views/tourist_bookings_page.dart';
+import 'package:yerel_rehber_app/ui/views/guide_payment_info_page.dart';
 
 class ProfilPage extends StatefulWidget {
   const ProfilPage({super.key});
@@ -326,7 +330,7 @@ class _ProfilPageState extends State<ProfilPage> {
                 'Uygulamamız hakkındaki görüşlerinizi bizimle paylaşın. Önerileriniz ve geri bildirimleriniz bizim için değerli.',
                 style: TextStyle(fontSize: 14),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextField(
                 controller: feedbackController,
                 maxLines: 5,
@@ -511,6 +515,8 @@ class _ProfilPageState extends State<ProfilPage> {
               ),
             ),
             const SizedBox(height: 12),
+
+            // Rehber olma kartı
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
@@ -577,6 +583,111 @@ class _ProfilPageState extends State<ProfilPage> {
                 ),
               ),
             ),
+            const SizedBox(height: 12),
+
+            // Rehber Paneli
+            StreamBuilder<DocumentSnapshot>(
+              stream: FirebaseFirestore.instance
+                  .collection('guides')
+                  .doc(_auth.currentUser?.uid)
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const SizedBox.shrink();
+                }
+
+                final isGuide = snapshot.hasData && snapshot.data!.exists;
+
+                if (isGuide) {
+                  return Container(
+                    height: 300,
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 10,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Text(
+                              "Rehber Paneli",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: mainColor,
+                              ),
+                            ),
+                          ),
+                          _buildSettingsItem(
+                            icon: Icons.account_balance_wallet,
+                            title: "Kazançlarım",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const GuideEarningsPage(),
+                                ),
+                              );
+                            },
+                          ),
+                          _buildSettingsItem(
+                            icon: Icons.payment,
+                            title: "Para Çekme",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const GuideWithdrawPage(),
+                                ),
+                              );
+                            },
+                          ),
+                          _buildSettingsItem(
+                            icon: Icons.account_balance,
+                            title: "Ödeme Bilgileri",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const GuidePaymentInfoPage(),
+                                ),
+                              );
+                            },
+                          ),
+                          _buildSettingsItem(
+                            icon: Icons.calendar_today,
+                            title: "Turlarım",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const GuideToursPage(),
+                                ),
+                              );
+                            },
+                            showDivider: false,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                return const SizedBox.shrink();
+              },
+            ),
             const SizedBox(height: 16),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -630,10 +741,15 @@ class _ProfilPageState extends State<ProfilPage> {
                     },
                   ),
                   _buildSettingsItem(
-                    icon: Icons.payments_outlined,
-                    title: "Ödemeler",
+                    icon: Icons.calendar_today_outlined,
+                    title: "Rezervasyonlarım",
                     onTap: () {
-                     
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TouristBookingsPage(),
+                        ),
+                      );
                     },
                   ),
                   _buildSettingsItem(

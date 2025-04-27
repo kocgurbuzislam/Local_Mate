@@ -537,7 +537,8 @@ class _SecuritySettingsPageState extends State<SecuritySettingsPage> {
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: mainColor),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         filled: true,
         fillColor: Colors.grey[50],
       ),
